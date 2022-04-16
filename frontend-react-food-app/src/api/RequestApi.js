@@ -65,14 +65,9 @@ class RequestApi {
       image: data.image,
       youtube: data.youtube
     });
-    return res;
-  }
-  
-  //add reviews
-   static async review(data){
-    let res = await this.request(`reviews`, data, "post");
     return res.token;
   }
+  
 
   //to get categories
   static async getCategories(category) {
@@ -82,7 +77,7 @@ class RequestApi {
   //get categories by id 
   static async getCategory(id) {
     let res = await this.request(`categories/${id}`);
-    return res.id;
+    return res.category;
   }
   
 
@@ -98,7 +93,27 @@ class RequestApi {
   return res.meals;
   }
 
+  //to get reviews
+  static async getReviews(review) {
+    let res = await this.request("reviews", { review });
+    return res.reviews;
+  }
 
+  //add reviews
+  // static async review(data){
+  //   let res = await this.request(`reviews`, data, "post");
+  //   return res.token;
+  // }
+  static async review(data) {
+    let url ="http://localhost:3002"
+    let res = await axios.post(`${url}/reviews`, {
+      id: data.id,
+      review: data.review,
+      username: data.username
+      
+    });
+    return res.token;
+  }
 
   //click to like btn
   static async likeId(username, id) {
