@@ -31,8 +31,8 @@ VALUES
         TRUE
 );
 
-INSERT INTO reviews (review)
-VALUES ('Best food ever had...');
+INSERT INTO reviews (review, username, meal_id)
+VALUES ('loved this food..', 'luniva', 2);
 
 -- INSERT INTO comments (comment)
 -- VALUES ('I want to try too.');

@@ -11,8 +11,8 @@ const authRoutes = require("./routes/auth");
 const mealsRoutes = require("./routes/meals");
 const categoriesRoutes = require("./routes/categories");
 const usersRoutes = require("./routes/users");
-// const reviewsRoutes = require("./routes/reviews");
-// const commentsRoutes = require("./routes/comments");
+const reviewsRoutes = require("./routes/reviews");
+
 const morgan = require("morgan");
 
 const app = express();
@@ -26,8 +26,8 @@ app.use("/auth", authRoutes);
 app.use("/meals", mealsRoutes);
 app.use("/users", usersRoutes);
 app.use("/categories", categoriesRoutes);
-// app.use("/reviews", reviewsRoutes);
-//app.use("/comments", commentsRoutes);
+app.use("/reviews", reviewsRoutes);
+
 
 
 // Handle 404 errors 

@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useContext }from "react";
-import { useParams, Link} from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { Card, CardBody, CardTitle, CardText } from "reactstrap";
 import UserContext from "../users/UserContext";
 import ReactPlayer from "react-player/youtube";
@@ -77,7 +77,7 @@ const RecipeItem =({ likeId }) => {
                         }
                     </button>
                    
-                       <Link to={`posts/${r.meal}/add`}><button className="btn btn-success">Add Reviews..</button></Link> 
+                       <Link to={`posts/reviews/add`}><button className="btn btn-success">Add Reviews..</button></Link> 
                     
                     </div>
                      <div className="row center-align">
