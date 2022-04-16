@@ -7,8 +7,8 @@ const AddReview = ({ review }) => {
     const history = useHistory();
     const [formData, setFormData] = useState({  
         review:"", 
-        username:"",
-        
+        username:""
+   
     });
 
     const [formErrors, setFormErrors] = useState([]);
@@ -19,7 +19,7 @@ const AddReview = ({ review }) => {
         e.preventDefault();
         let result = await review(formData);
         if (result.success){
-            history.push("/posts/:meal");
+            history.push("/posts/review");
         } else {
             setFormErrors(result.errors);
         }
@@ -80,7 +80,6 @@ const AddReview = ({ review }) => {
     );
 
 }
-
 
 
 export default AddReview;
