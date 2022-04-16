@@ -68,6 +68,11 @@ class RequestApi {
     return res;
   }
   
+  //add reviews
+   static async review(data){
+    let res = await this.request(`reviews`, data, "post");
+    return res.token;
+  }
 
   //to get categories
   static async getCategories(category) {

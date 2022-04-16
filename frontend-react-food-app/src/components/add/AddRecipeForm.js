@@ -22,7 +22,7 @@ const AddRecipeForm = ({ add }) => {
         e.preventDefault();
         let result = await add(formData);
         if (result.success){
-            history.push("/meals");
+            history.push("/posts");
         } else {
             setFormErrors(result.errors);
         }

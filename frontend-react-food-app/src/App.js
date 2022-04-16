@@ -82,7 +82,19 @@ async function add(addData) {
     setToken(token);
     return { success: true };
   } catch (errors) {
-    console.error("login failed", errors);
+    console.error("post meal failed", errors);
+    return { success: false, errors };
+  }
+}
+
+//to add review for meals
+async function review(addData) {
+  try {
+    let token = await RequestApi.review(addData);
+    setToken(token);
+    return { success: true };
+  } catch (errors) {
+    console.error("add review fail", errors);
     return { success: false, errors };
   }
 }
@@ -96,7 +108,7 @@ async function add(addData) {
             value={{ currentUser, setCurrentUser }} >
         <div className="App">
         <Navigation logout={logout} />
-        <Router login={login} signup={signup} add={add} />
+        <Router login={login} signup={signup} add={add} review={review}/>
       </div>
 
       </UserContext.Provider>

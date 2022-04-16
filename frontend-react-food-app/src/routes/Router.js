@@ -15,13 +15,13 @@ import Search from "./Search";
 // import IngredientId from "./IngredientId";
 import IngredientId from "./IngredientId";
 import RecipeList from "../components/RecipeList";
-import ReviewApp from "../reviews/ReviewApp";
+// import ReviewApp from "../reviews/ReviewApp";
 import AddRecipeForm from "../components/add/AddRecipeForm";
 import AddReview from "../components/add/AddReview";
 import RecipeItem from "../components/RecipeItem";
 
 //for login and signup routes
-function Router({ login, signup, add, likeId }) {
+function Router({ login, signup, add, likeId, review }) {
 
     return (
         <div>
@@ -38,10 +38,10 @@ function Router({ login, signup, add, likeId }) {
                 <Route exact path="/posts/add"><AddRecipeForm add={add} /></Route>
                 <Route exact path="/posts/:meal"><RecipeItem likeId={likeId}/></Route>
                 
-                <Route exact path="/posts/:meal"><AddReview /></Route>
+                <Route exact path="/posts/:meal/add"><AddReview review={review}/></Route>
                
              
-                <Route exact path="/reviews"><ReviewApp /></Route>
+                {/* <Route exact path="/posts/:meal/add"><ReviewApp /></Route> */}
 
 
 
