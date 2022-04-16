@@ -1,0 +1,155 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+ main {
+  flex: 2 0 auto;
+}
+
+.col s12 {
+ width: 250px;
+  height: 250px;
+}
+
+.card-image:hover,
+.card-content:hover {
+  cursor: pointer;
+  width: 250px;
+  height: 250px;
+}
+
+a.view-recipe:hover {
+  color: brown;
+}
+
+.row {
+  margin: 2.5rem auto 2rem;
+  
+}
+
+.mb-3 {
+  margin-bottom: 3rem;
+}
+
+.mb-4{
+  margin-bottom: 4rem;
+}
+.ingredients-section {
+  margin: 4em auto 3.5em;
+  padding-top: 1.5em;
+  padding-bottom: 1.5em;
+}
+
+.card-action:hover {
+  background-color: rgb(218, 218, 202);
+}
+
+p span {
+  font-size: medium;
+}
+
+.input-field:focus {
+  border-bottom: 1px solid #00ff3c !important;
+  box-shadow: 0 1px 0 0 #706f69 !important;
+}
+
+.input-field {
+  color: rgb(92, 232, 73);
+}
+
+.player-wrapper {
+  position: relative;
+  padding-top: 50%; 
+  
+ } 
+
+ .react-player {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+
+.mobile-input {
+  color: brown;
+}
+
+.border-btm {
+  border-bottom: 1px solid #ffff00 !important;
+  box-shadow: 0 1px 0 0 #ffd600 !important;
+}
+
+.disabled {
+  visibility: hidden;
+}  
+
+.MoreLinks {
+  display: flex;
+}
+
+img  {
+  width: 250px;
+  height: 250px;
+}
+
+.Homepage{
+  display: grid;
+}
+.randomMeals {
+  background-color: orange;
+  text-align: center;
+}
+.categories {
+  display: inline-flexbox;
+}
+
+/* .RecipeCard {
+ 
+    height: 400px;
+    margin-bottom: 2rem;
+    color: purple;
+    border-radius: 0;
+    border: 1 px black;
+   
+} */
+
+.Navigation {
+  background-color: white;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.125);
+}
+
+.nav-link.active {
+  font-weight: bold;
+  color: black;
+}
+
+.rating {
+  color: gold;
+  
+}
+
+.MealDetail {
+display: grid;
+
+}
+
+button img {
+  height:20px;
+  width:20px;
+}

@@ -1,0 +1,47 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+      "meal": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 20
+       
+      },
+      "category": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 15
+      },
+      "area": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 15
+      },
+      "instructions": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 1500
+      },
+      "image": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 500
+      },
+      "youtube": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 200
+      }
+    },
+    "additionalProperties": false,
+    "required": [
+      "meal",
+      "category",
+      "area",
+      "instructions"
+
+    ]
+  }
+  
