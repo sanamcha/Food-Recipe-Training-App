@@ -55,8 +55,8 @@ class RequestApi {
 
 
   static async add(data) {
-    let url ="http://localhost:3002"
-    let res = await axios.post(`${url}/meals`, {
+    let URL ="http://localhost:3002"
+    let res = await axios.post(`${URL}/meals`, {
       id: data.id,
       meal: data.meal,
       category: data.category,
@@ -82,16 +82,22 @@ class RequestApi {
   
 
   //to get list of meals filtered by meal
-  static async getMeals(catagory){
-    let res = await this.request("meals", { catagory });
+  static async getMeals(id){
+    let res = await this.request("meals", {id});
   return res.meals;
   }
 
-  //to get meals by id
-  static async getMealId(id){
-    let res = await this.request("meals", { id });
-  return res.meals;
-  }
+  // //to get meals by id
+  // static async getMeal(id){
+  //   let res = await this.request(`meals/${id}`);
+  // return res.meal;
+  // }
+static async getMeal() {
+  let URL ="http://localhost:3002"
+  const result = await axios.get(`${URL}/meals`)
+  return result.data;
+}
+
 
   //to get reviews
   static async getReviews(review) {
@@ -117,7 +123,7 @@ class RequestApi {
 
   //click to like btn
   static async likeId(username, id) {
-    await this.request(`users/${username}/meals/${id}`, {}, "post");
+    await this.request(`users/${username}/posts/${id}`, {}, "post");
   }
   
 
