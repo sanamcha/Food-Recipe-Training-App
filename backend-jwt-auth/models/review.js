@@ -10,7 +10,7 @@ class Review {
       const result = await db.query(
             `INSERT INTO reviews (
               review,
-              username,
+              username
               
              )
              VALUES ($1, $2)

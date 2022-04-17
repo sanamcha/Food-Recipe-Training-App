@@ -59,21 +59,21 @@ router.get("/", async function (req, res, next) {
 
 router.get("/:id", async function (req, res, next) {
   try {
-    const mealId = await Meal.get(req.params.id);
-    return res.json({ mealId });
-  } catch (err) {
-    return next(err);
-  }
-});
-
-router.get("/:category", async function (req, res, next) {
-  try {
-    const meal = await Meal.get(req.params.category);
+    const meal = await Meal.get(req.params.id);
     return res.json({ meal });
   } catch (err) {
     return next(err);
   }
 });
+
+// router.get("/:category", async function (req, res, next) {
+//   try {
+//     const meal = await Meal.get(req.params.category);
+//     return res.json({ meal });
+//   } catch (err) {
+//     return next(err);
+//   }
+// });
 
 // PATCH /[mealId]  => { meal }
 

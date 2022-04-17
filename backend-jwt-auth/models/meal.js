@@ -56,30 +56,29 @@ class Meal {
   }
 
   // Given a meal id, return data about meal.
-  static async get(id) {
+  static async get(category) {
     const mealResult = await db.query(
-          `SELECT   
-                    id,
-                    meal,
-                    category,
-                    area,
-                    instructions,
-                    image,
-                    youtube,
-                    username
-                    
+          `SELECT id,
+                  meal,
+                  category,
+                  area,
+                  instructions,
+                  image,
+                  youtube,
+                  username    
             FROM meals
-            WHERE id = $1`, [id]);
+            WHERE category=$1`, 
+            [category]);
 
-    const mealId = mealResult.rows[0];
+    const meal = mealResult.rows[0];
 
-    if (!mealId) throw new NotFoundError(`No meal: ${id}`);
+    if (!meal) throw new NotFoundError(`No meal: ${category}`);
 
-    return mealId;
+    return meal;
   }
 
 //get meals by category
-  static async get(category) {
+  static async get(id) {
     const mealRes = await db.query(
           `SELECT   id,
                     meal,
@@ -91,11 +90,11 @@ class Meal {
                     username
                     
             FROM meals
-            WHERE category = $1`, [category]);
+            WHERE id = $1`, [id]);
 
-    const meal = mealRes.rows[0];
+    const mealId = mealRes.rows[0];
 
-    if (!meal) throw new NotFoundError(`No meal: ${category}`);
+    if (!mealId) throw new NotFoundError(`No meal: ${id}`);
 
     const categoriesRes = await db.query(
           `SELECT 
@@ -104,12 +103,12 @@ class Meal {
               image,
               description
            FROM categories
-           WHERE id = $1`, [meal.categoryId]);
+           WHERE id = $1`, [mealId.categoryId]);
 
-    delete meal.categoryId;
-    meal.category = categoriesRes.rows[0];
+    delete mealId.categoryId;
+    mealId.category = categoriesRes.rows[0];
 
-    return meal;
+    return mealId;
   }
 
   // Update meal data with `data`.

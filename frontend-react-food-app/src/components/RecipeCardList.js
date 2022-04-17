@@ -1,27 +1,28 @@
-import React from "react";
+// import React from "react";
 
-import { Link } from "react-router-dom";
-import { ListGroupItem } from "reactstrap";
+// import { Link } from "react-router-dom";
+// import { ListGroupItem } from "reactstrap";
 
-function RecipeCardList({ meals, like }){
-    console.debug("RecipeCardList", "meals=", meals);
+// function RecipeCardList({ meals, like }){
+//     console.debug("RecipeCardList", "meals=", meals);
 
-    return (
-        <>
-        <div>
-           {meals.map(m =>(
-               <Link to={`/posts/${m.meal}`} key={m.id} >
-                <ListGroupItem>
-                  {m.meal}   <br></br>  
-                  <img src={m.image} alt="meal image"/>             
-                </ListGroupItem>
+//     return (
+//         <>
+//         <div>
+//            {meals.map(m =>(
+//                <Link to={`/posts/${m.id}`} key={m.id} >
+//                 <ListGroupItem>
+                
+//                   {m.meal}   <br></br>  
+//                   <img src={m.image} alt="meal image"/>             
+//                 </ListGroupItem>
 
-               </Link>
+//                </Link>
                
-           ))}
-        </div>
-        </>
-    );
-}
+//            ))}
+//         </div>
+//         </>
+//     );
+// }
 
-export default RecipeCardList;
+// export default RecipeCardList;

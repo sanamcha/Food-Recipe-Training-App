@@ -8,11 +8,11 @@ import LoginForm from "../users/LoginForm";
 import SignupForm from "../users/SignupForm";
 import Categories from "../components/Categories";
 import PrivateRoute from "./PrivateRoute";
-// import Footer from "../components/Footer";
+
 
 import MealId from "./MealId";
 import Search from "./Search";
-// import IngredientId from "./IngredientId";
+
 import IngredientId from "./IngredientId";
 import RecipeList from "../components/RecipeList";
 import ReviewApp from "../components/ReviewApp";
@@ -22,7 +22,7 @@ import RecipeItem from "../components/RecipeItem";
 
 
 //for login and signup routes
-function Router({ login, signup, add, likeId, review }) {
+function Router({ login, signup, meals, add, likeId, review }) {
 
     return (
         <div>
@@ -30,23 +30,18 @@ function Router({ login, signup, add, likeId, review }) {
                 <Route exact path="/"><Homepage /></Route>
                 <Route exact path="/categories"><Categories /></Route>
                 <Route exact path="/random"><RandomMeal /></Route>
+                <Route exact path="/posts/add"><AddRecipeForm add={add} /></Route>
+                <Route exact path="/posts/:id"><RecipeItem meals={meals} likeId={likeId} /></Route>
+                <Route exact path="/posts/"><RecipeList meals={meals}/></Route>
                 
+           
                 <Route path="/search/q=:searchFor"><Search /></Route>
                 <Route exact path="/meal/:id"><MealId /></Route>
                 <Route exact path="/ingredients/:id"><IngredientId /></Route>
 
-
-                
-                <Route exact path="/posts/"><RecipeList /></Route>
-
                 <Route exact path="/posts/reviews/"><ReviewApp /></Route> 
-                <Route exact path="/posts/add"><AddRecipeForm add={add} /></Route>
-                
-                <Route exact path="/posts/:meal"><RecipeItem likeId={likeId}/></Route>
-                
-
-                
-                <Route exact path="/posts/reviews/add"><AddReview review={review}/></Route>
+       
+                <Route exact path="/posts/:id/add"><AddReview review={review}/></Route>
         
         
                 <Route exact path="/login">
