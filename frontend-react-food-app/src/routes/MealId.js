@@ -41,10 +41,10 @@ const MealId = () => {
     };
 
     return (
-        <div className= "container mb-3">
-            <div className="row mb-3">
+        <div className= "container">
+            <div className="row">
                 {!isEmpty(meal) ? (
-                    <div className="col s12 m5">
+                    <div className="col s12">
                         <h4 className="center-align">{meal.strMeal}</h4>
                         <img
                         src={meal.strMealThumb} 
@@ -87,7 +87,7 @@ const MealId = () => {
                 </div>
                 
             )}
-            <Link to="/reviews"><button className="btn btn-primary">Add Reviews....</button></Link>
+            {/* <Link to="/reviews"><button className="btn btn-primary">Add Reviews....</button></Link> */}
         </div>
     )
 }

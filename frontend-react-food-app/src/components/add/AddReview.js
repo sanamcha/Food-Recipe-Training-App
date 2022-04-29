@@ -1,13 +1,15 @@
 import React from 'react';
 import { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 
 
-const AddReview = ({ review }) => {
+const AddReview = ({ addReviews }) => {
     const history = useHistory();
+    const {id} = useParams();
     const [formData, setFormData] = useState({  
         review:"", 
-        username:""
+        username:"",
+        meal_id: ""
    
     });
 
@@ -17,9 +19,10 @@ const AddReview = ({ review }) => {
 
     async function handleSubmit(e){
         e.preventDefault();
-        let result = await review(formData);
+        let result = await addReviews(formData);
         if (result.success){
-            history.push("/posts/review");
+            history.push("/meals");
+            // history.push(`{/meals/${id}}`);
         } else {
             setFormErrors(result.errors);
         }
@@ -61,6 +64,20 @@ const AddReview = ({ review }) => {
                         value={formData.username}
                         onChange={handleChange}
                         autoComplete="username"
+                        required
+                    />
+                  </div>
+                  
+
+                  <div className="form-group">
+                    <label>Meal Id :</label>
+                    <input
+                        
+                        name="meal_id"
+                        className="form-control"
+                        value={formData.meal_id}
+                        onChange={handleChange}
+                        autoComplete="meal_id"
                         required
                     />
                   </div>

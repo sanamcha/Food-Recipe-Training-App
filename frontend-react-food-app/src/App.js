@@ -24,6 +24,7 @@ const App = () => {
   const [token, setToken] = useLocalStorage(TOKEN_ID);
 
   const [meals, setMeals] = useState([]);
+  const [reviews, setReviews] = useState([]);
 
   console.debug("App", "infoLoaded=", infoLoaded, 
   "currentUser=", currentUser, "token=", token);
@@ -88,6 +89,16 @@ useEffect(() => {
 }, []);
 
 
+useEffect(() => {
+  async function getReviewById(id){
+    let reviews = await RequestApi.getReviews(id);
+    setReviews(reviews);
+  }
+  getReviewById();
+}, []);
+
+
+
 //handle for add more meals/recipe
 async function add(addData) {
   try {
@@ -101,9 +112,9 @@ async function add(addData) {
 }
 
 //to add review for meals
-async function review(addData) {
+async function addReviews(addData) {
   try {
-    let token = await RequestApi.review(addData);
+    let token = await RequestApi.addReview(addData);
     setToken(token);
     return { success: true };
   } catch (errors) {
@@ -121,7 +132,7 @@ async function review(addData) {
             value={{ currentUser, setCurrentUser }} >
         <div className="App">
         <Navigation logout={logout} />
-        <Router login={login} signup={signup} meals={meals} add={add} review={review}/>
+        <Router login={login} signup={signup} meals={meals} add={add} reviews={reviews} addReviews={addReviews} />
       </div>
 
       </UserContext.Provider>

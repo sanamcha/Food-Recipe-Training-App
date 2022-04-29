@@ -29,10 +29,10 @@ function Navigation({ logout }) {
                 {/* <li><NavLink className="navbar-brand" to="/meals" > FOOD-RECIPE
             </NavLink></li> */}
                 <li className="nav-item mr-4">
-                    <NavLink className="nav-link" to="/posts/add">Add Meals</NavLink></li>
+                    <NavLink className="nav-link" to="/meals/add">Add Meals</NavLink></li>
                 
                 <li className="nav-item mr-4">
-                    <NavLink className="nav-link" to="/posts">Popular Meals</NavLink></li>
+                    <NavLink className="nav-link" to="/meals">Popular Meals</NavLink></li>
                     <li className="nav-item mr-4">
                     <NavLink className="nav-link" to="/ingredients/0">Ingredients</NavLink></li>
                     <li className="nav-item mr-4">

@@ -14,15 +14,16 @@ import MealId from "./MealId";
 import Search from "./Search";
 
 import IngredientId from "./IngredientId";
-import RecipeList from "../components/RecipeList";
-import ReviewApp from "../components/ReviewApp";
-import AddRecipeForm from "../components/add/AddRecipeForm";
+import PostList from "../components/PostList";
+import ViewReviews from "../components/ViewReviews";
+import ViewReviewId from "../components/ViewReviewId";
+import AddPostForm from "../components/add/AddPostForm";
 import AddReview from "../components/add/AddReview";
-import RecipeItem from "../components/RecipeItem";
+import PostItem from "../components/PostItem";
 
 
 //for login and signup routes
-function Router({ login, signup, meals, add, likeId, review }) {
+function Router({ login, signup, meals, add, reviews, addReviews }) {
 
     return (
         <div>
@@ -30,18 +31,21 @@ function Router({ login, signup, meals, add, likeId, review }) {
                 <Route exact path="/"><Homepage /></Route>
                 <Route exact path="/categories"><Categories /></Route>
                 <Route exact path="/random"><RandomMeal /></Route>
-                <Route exact path="/posts/add"><AddRecipeForm add={add} /></Route>
-                <Route exact path="/posts/:id"><RecipeItem meals={meals} likeId={likeId} /></Route>
-                <Route exact path="/posts/"><RecipeList meals={meals}/></Route>
+                
+                <Route exact path="/meals"><PostList meals={meals} /></Route>
+                <PrivateRoute exact path="/meals/add"><AddPostForm add={add} /></PrivateRoute>
+                <PrivateRoute exact path="/meals/:id"><PostItem meals={meals} reviews={reviews} /></PrivateRoute>
+                
                 
            
                 <Route path="/search/q=:searchFor"><Search /></Route>
                 <Route exact path="/meal/:id"><MealId /></Route>
                 <Route exact path="/ingredients/:id"><IngredientId /></Route>
 
-                <Route exact path="/posts/reviews/"><ReviewApp /></Route> 
+                <Route exact path="/reviews"><ViewReviews /></Route> 
+                <Route exact path="/reviews/:id"><ViewReviewId reviews={reviews}/></Route> 
        
-                <Route exact path="/posts/:id/add"><AddReview review={review}/></Route>
+                <PrivateRoute exact path="/meals/:id/add"><AddReview addReviews={addReviews}/></PrivateRoute>
         
         
                 <Route exact path="/login">

@@ -9,18 +9,22 @@ class Review {
     static async create(data) {
       const result = await db.query(
             `INSERT INTO reviews (
-              review,
-              username
-              
+              meal_id,
+              username,
+              review
+
              )
-             VALUES ($1, $2)
+             VALUES ($1, $2, $3)
              RETURNING 
-              review,
-              username
-              `,
+             meal_id, 
+             username,
+             review
+             `,
           [
-            data.review,
+            data.meal_id,
             data.username,
+            data.review
+             
             ]);
       let review = result.rows[0];
   
@@ -34,11 +38,16 @@ class Review {
     
       const reviewRes = await db.query(
             ` SELECT 
-                    id,
-                    review,
-                    username
-              FROM reviews
-              ORDER BY id`);
+                r.id, 
+                r.username,   
+                r.review,
+                r.meal_id,
+                m.id
+                
+              FROM reviews AS r
+              LEFT JOIN meals AS m
+              ON m.id = r.meal_id;
+              `);
   
       return reviewRes.rows;
     }
@@ -47,15 +56,18 @@ class Review {
     static async get(id) {
       const reviewResult = await db.query(
             `SELECT   
-                      id,
-                      review,
-                      username,
+                id,
+                username,
+                review,
+                meal_id 
               FROM reviews
               WHERE id = $1`, [id]);
   
       const reviewId = reviewResult.rows[0];
   
-      if (!reviewId) throw new NotFoundError(`No Reviews found : ${id}`);
+      if (!reviewId) throw new NotFoundError(`No Reviews found : ${reviewId}`);
+
+      
   
       return reviewId;
     }

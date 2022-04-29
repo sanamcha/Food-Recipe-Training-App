@@ -19,7 +19,7 @@ const router = new express.Router();
 // POST / { category } =>  { category }
 
 
-router.post("/", ensureAdmin, async function (req, res, next) {
+router.post("/",  async function (req, res, next) {
   try {
     const validator = jsonschema.validate(req.body, categoryNewSchema);
     if (!validator.valid) {

@@ -123,12 +123,12 @@ class User {
     if (!user) throw new NotFoundError(`No user: ${username}`);
 
 
-    // const userReviewsRes = await db.query(
-    //       `SELECT r.user_id
-    //        FROM reviews AS r
-    //        WHERE r.username = $1`, [username]);
+    const userLikesResult = await db.query(
+          `SELECT likes.meal_id
+           FROM likes 
+           WHERE likes.username = $1`, [username]);
 
-    // user.reviews = userReviewsRes.rows.map(a => a.user_id);
+    user.likes = userLikesResult.rows.map(l => l.meal_id);
     return user;
   }
 
@@ -183,7 +183,7 @@ class User {
 
   
 
-  static async like(username, mealId) {
+  static async likeToMeal(username, mealId) {
     const res1 = await db.query(
       `SELECT id
        FROM meals

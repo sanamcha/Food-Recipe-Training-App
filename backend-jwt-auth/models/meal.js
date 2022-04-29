@@ -10,7 +10,6 @@ class Meal {
   static async create(data) {
     const result = await db.query(
           `INSERT INTO meals (
-            
             meal,
             category,
             area,
@@ -47,66 +46,84 @@ class Meal {
                   area,
                   instructions,
                   image,
-                  youtube
+                  youtube,
+                  reviews
          
             FROM meals
-            ORDER BY id`);
+            LEFT JOIN 
+            (SELECT meal_id, COUNT(*) FROM reviews GROUP BY meal_id) 
+            reviews 
+            ON meals.id = reviews.meal_id
+            `);
 
     return mealsRes.rows;
   }
 
   // Given a meal id, return data about meal.
-  static async get(category) {
-    const mealResult = await db.query(
-          `SELECT id,
-                  meal,
-                  category,
-                  area,
-                  instructions,
-                  image,
-                  youtube,
-                  username    
-            FROM meals
-            WHERE category=$1`, 
-            [category]);
+  // static async getCat(category) {
+  //   const mealResult = await db.query(
+  //         `SELECT id,
+  //                 meal,
+  //                 category,
+  //                 area,
+  //                 instructions,
+  //                 image,
+  //                 youtube,
+  //                 username    
+  //           FROM meals
+  //           WHERE category=$1`, 
+  //           [category]);
 
-    const meal = mealResult.rows[0];
+  //   const meal = mealResult.rows[0];
 
-    if (!meal) throw new NotFoundError(`No meal: ${category}`);
+  //   if (!meal) throw new NotFoundError(`No meal: ${category}`);
 
-    return meal;
-  }
+  //   const reviewRes = await db.query(
+  //       `SELECT id, review, username, meal_id 
+  //       FROM reviews
+  //       WHERE meal_id = $1
+  //       ORDER BY id,
+  //       `[category],
+  //   );
+  //   meal.reviews =reviewRes.rows;
+
+  //   return meal;
+  // }
 
 //get meals by category
   static async get(id) {
     const mealRes = await db.query(
-          `SELECT   id,
-                    meal,
-                    category,
-                    area,
-                    instructions,
-                    image,
-                    youtube,
-                    username
-                    
-            FROM meals
+          `SELECT   
+              id,
+              meal,
+              category,
+              area,
+              instructions,
+              image,
+              youtube,
+              reviews
+        
+            FROM meals 
+    
             WHERE id = $1`, [id]);
 
     const mealId = mealRes.rows[0];
 
     if (!mealId) throw new NotFoundError(`No meal: ${id}`);
 
-    const categoriesRes = await db.query(
-          `SELECT 
-              id,
-              category,
-              image,
-              description
-           FROM categories
-           WHERE id = $1`, [mealId.categoryId]);
-
-    delete mealId.categoryId;
-    mealId.category = categoriesRes.rows[0];
+    const reviewsRes = await db.query(
+      `SELECT 
+          id,
+          review,
+          username,
+          meal_id 
+          
+       FROM reviews 
+      WHERE meal_id = $1
+      ORDER BY id`,
+      [id]);
+     
+      mealId.reviews = reviewsRes.rows;
 
     return mealId;
   }

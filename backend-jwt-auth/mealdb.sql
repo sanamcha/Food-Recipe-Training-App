@@ -1,18 +1,18 @@
-\echo 'Delete and recreate meal_db db?'
+\echo 'Delete and recreate meals_app db?'
 \prompt 'Return for yes or control-C to cancel > ' foo
 
-DROP DATABASE recipedb;
-CREATE DATABASE recipedb;
-\connect recipedb
+DROP DATABASE meals_app;
+CREATE DATABASE meals_app;
+\connect meals_app
 
 \i mealdb-schema.sql
 \i mealdb-seed.sql
 
-\echo 'Delete and recreate mealsdata_test db?'
+\echo 'Delete and recreate meal_app_test db?'
 \prompt 'Return for yes or control-C to cancel > ' foo
 
-DROP DATABASE recipedb_test;
-CREATE DATABASE recipedb_test;
-\connect recipedb_test
+DROP DATABASE meals_app_test;
+CREATE DATABASE meals_app_test;
+\connect meals_app_test
 
 \i mealdb-schema.sql

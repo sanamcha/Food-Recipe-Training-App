@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
 
-const AddRecipeForm = ({ add }) => {
+const AddPostForm = ({ add }) => {
     const history = useHistory();
     const [formData, setFormData] = useState({  
         meal:"", 
@@ -22,7 +22,7 @@ const AddRecipeForm = ({ add }) => {
         e.preventDefault();
         let result = await add(formData);
         if (result.success){
-            history.push("/posts");
+            history.push("/meals");
         } else {
             setFormErrors(result.errors);
         }
@@ -138,4 +138,4 @@ const AddRecipeForm = ({ add }) => {
 
 }
 
-export default AddRecipeForm;
+export default AddPostForm;

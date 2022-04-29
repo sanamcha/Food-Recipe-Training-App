@@ -23,7 +23,8 @@ CREATE TABLE meals (
   area TEXT ,
   instructions TEXT ,
   image TEXT,
-  youtube TEXT ,
+  youtube TEXT,
+  reviews TEXT,
   username VARCHAR(25) 
     REFERENCES users ON DELETE CASCADE,
   category_id INTEGER  REFERENCES categories ON DELETE CASCADE
@@ -35,7 +36,7 @@ CREATE TABLE reviews (
   review TEXT NOT NULL,
   username VARCHAR(25) NOT NULL
     REFERENCES users ON DELETE CASCADE,
-  meal_id INTEGER
+  meal_id INTEGER NOT NULL
     REFERENCES meals ON DELETE CASCADE
 
 );

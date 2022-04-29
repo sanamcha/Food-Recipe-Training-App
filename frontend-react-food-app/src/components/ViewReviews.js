@@ -11,20 +11,21 @@ import {
   } from "reactstrap";
  
 
-const Reviews = () => {
+const ViewReviews = () => {
     const [reviews, setReviews] = useState([]);
 
-    useEffect(function getReviewsOnLoad() {
+    useEffect(async function getReviewsOnLoad() {
         console.debug("getReviewsOnLoad=" ,getReviewsOnLoad );
-        result();
+        const reviews = await RequestApi.getReviews();
+        setReviews(reviews);
+        // result();
     }, []);
 
-    const result = async () => {
-        let reviews = await RequestApi.getReviews();
-        setReviews(reviews);
-    }
+    // const result = async () => {
+    //     let reviews = await RequestApi.getReviews();
+    //     setReviews(reviews);
+    // }
 
-    
     if(!reviews) return <h1>Loading.....</h1>;
 
     return (
@@ -37,15 +38,20 @@ const Reviews = () => {
           <CardText>
          List of some user's Reviews..
           </CardText>
-          <ListGroup>
           {reviews.map(r => (
-              <ListGroupItem>
+          <Link to={`/reviews/${r.id}`} key={r.id}>
+          <ListGroup>
+          
+              <ListGroupItem >
+                <p>{r.id}</p>
                 <p>{r.review}</p> 
                 <p>{r.username}</p> 
                 <p>{r.mealId}</p>
               </ListGroupItem>
-              ))}
+             
           </ListGroup>
+          </Link>
+           ))}
         </CardBody>
         </Card>
          
@@ -53,4 +59,4 @@ const Reviews = () => {
      );
 }
 
-export default Reviews;
+export default ViewReviews;

@@ -12,8 +12,8 @@ const PORT = +process.env.PORT || 3002;
 
 function getDatabaseUri() {
   return (process.env.NODE_ENV === "test")
-      ? "recipedb_test"
-      : process.env.DATABASE_URL || "recipedb";
+      ? "meals_app_test"
+      : process.env.DATABASE_URL || "meals_app";
 }
 
 
