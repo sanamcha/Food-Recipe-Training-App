@@ -19,12 +19,12 @@ const App = () => {
 
   const [infoLoaded, setInfoLoaded] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
-  
- 
+
   const [token, setToken] = useLocalStorage(TOKEN_ID);
 
   const [meals, setMeals] = useState([]);
   const [reviews, setReviews] = useState([]);
+  const [likeIds, setLikeIds] = useState(new Set([]));
 
   console.debug("App", "infoLoaded=", infoLoaded, 
   "currentUser=", currentUser, "token=", token);
@@ -38,6 +38,7 @@ const App = () => {
           RequestApi.token = token;
           let currentUser = await RequestApi.getCurrentUser(username);
           setCurrentUser(currentUser);
+          setLikeIds(new Set(currentUser.likes));
           
         } catch (err) {
           console.error("loadUser: problem loading....", err)
@@ -122,17 +123,28 @@ async function addReviews(addData) {
     return { success: false, errors };
   }
 }
+//to check meals liked
+function hasLiked(id){
+  return likeIds.has(id);
+}
 
+//like to meal
+function likes(id) {
+  if(hasLiked(id)) return;
+  RequestApi.likeMeal(currentUser.username, id);
+  setLikeIds(new Set([...likeIds, id]));
+}
 
+if(!infoLoaded) return <h1>Loading.......</h1>
     return (
  
       <BrowserRouter>
         
         <UserContext.Provider
-            value={{ currentUser, setCurrentUser }} >
+            value={{ currentUser, setCurrentUser, hasLiked, likes }} >
         <div className="App">
         <Navigation logout={logout} />
-        <Router login={login} signup={signup} meals={meals} add={add} reviews={reviews} addReviews={addReviews} />
+        <Router login={login} signup={signup} meals={meals} setMeals={setMeals} add={add} reviews={reviews} addReviews={addReviews} />
       </div>
 
       </UserContext.Provider>
