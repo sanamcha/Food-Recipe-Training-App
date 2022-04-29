@@ -1,37 +1,16 @@
 import React, {useState, useEffect, useContext }from "react";
-import { useParams, Link, useHistory} from "react-router-dom";
-import { Card, CardBody, CardTitle, CardText, ListGroup, ListGroupItem } from "reactstrap";
-import UserContext from "../users/UserContext";
+import { useParams} from "react-router-dom";
+import { Card, CardBody, CardTitle, CardText, ListGroup} from "reactstrap";
 import ReactPlayer from "react-player/youtube";
-import likedImg from "./img/thumb-up.png";
-import likeImg from "./img/like.png";
 import RequestApi from "../api/RequestApi";
 import ViewReviewId from "./ViewReviewId";
-import ViewReviews from "./ViewReviews";
-import { Axios } from "axios";
+import LikePost from "./LikePost";
 
-
-const PostItem = () => {
+const PostItem = (m) => {
     console.debug("PostItem");
-
     const [mealId, setMealId] = useState({});
-
     let { id } = useParams();
-    // const history = useHistory();
-    // const [formData, setFormData] = useState({  
-    //     review:"", 
-    //     username:"",
-    //     // mealId:`${id}`
-    //     mealId:""
     
-    // });
-
-    // const [formErrors, setFormErrors] = useState([]);
-    // console.debug("formError=", formErrors);
-    //handle form submit
-
-    // let { id } = useParams();
-
     useEffect(() => {
           async function getAllMealId() {
             console.debug("getAllMealId=", getAllMealId)
@@ -43,40 +22,6 @@ const PostItem = () => {
           getAllMealId();
          
         }, []);
-    
-    
-
-    // async function handleSubmit(e){
-    //     e.preventDefault();
-    //     let result = await review(formData);
-    //     if (result.success){
-    //         history.push(`/meals`);
-    //     } else {
-    //         setFormErrors(result.errors);
-    //     }
-    // }
-    
-        //for handle-change
-    // function handleChange(e){
-    //     const { name, value } = e.target;
-    //     setFormData(form => ({ ...form, [name]: value}));
-    //     }
-      
-
-    // const [reviews, setReviews] = useState([]);
-
-    // useEffect(function getReviewsOnLoad() {
-    //     console.debug("getReviewsOnLoad=" ,getReviewsOnLoad );
-    //     revResult();
-    //    }, []);
-   
-    //    const revResult = async (id) => {
-    //        let reviews = await RequestApi.getReviewsByMealId(id);
-    //        setReviews(reviews);
-    //    }
-
-       
-
 
     return (
         <div>
@@ -102,7 +47,8 @@ const PostItem = () => {
                 <p>
                     <b>Instructions :</b>{mealId.instructions}
                 </p>
-            
+
+                {/* <LikePost m={m} />  */}
                
                  <div className="row center-align">
                    <div className="col s12">
@@ -130,20 +76,17 @@ const PostItem = () => {
                      <ListGroup>
                          <p>Reviews:</p>
                         <ul>
-                            {/* <li>{mealId.reviews}</li> */}
-                            <ViewReviewId /> 
-                            {/* <li><ViewReviews /></li> */}
+                         <ViewReviewId /> 
                          </ul> 
-                       
-                      
+
                      </ListGroup> 
                 </CardBody>
             </Card>
          
-    </section>
- </div>
- </div>
-    )
+         </section>
+        </div>
+        </div>
+    );
 }
 
 export default PostItem;
