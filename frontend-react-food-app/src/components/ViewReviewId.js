@@ -4,10 +4,22 @@ import { Card, CardBody, CardTitle, CardText} from "reactstrap";
 import RequestApi from "../api/RequestApi";
 
 
-const ViewReviewId = ({reviews}) => {
+const ViewReviewId = () => {
+     const [reviewId, setReviewId] = useState({});
+     let { id } = useParams();
 
+    useEffect(() => {
+        async function getReviewsOnLoad() {
+        console.debug("getReviewsOnLoad=" ,getReviewsOnLoad )
 
-    if(!reviews) return <h1>Loading.....</h1>;
+        let reviewId = await RequestApi.getReviewsByMealId(id);
+           setReviewId(reviewId.reviews);
+        }
+        getReviewsOnLoad();
+       }, []);
+   
+ 
+    if(!reviewId) return <h1>Loading.....</h1>;
 
 
     return (
@@ -15,14 +27,14 @@ const ViewReviewId = ({reviews}) => {
             <section>
             <Card>
                 <CardBody>
-                {reviews.map(r => (
+               
                     <div>
                     <CardText className="font-italic">
-                    <b>Review :</b>{r.review}
+                    <b>Review :</b>{reviewId.review}
                     </CardText>
-                    <em><b>--{r.username}</b></em>
+                    <em><b>--{reviewId.username}</b></em>
                     </div>
-                            ))} 
+                         
 
                 </CardBody>
             </Card>
