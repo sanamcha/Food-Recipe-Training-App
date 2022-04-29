@@ -4,7 +4,7 @@ import Ingredients from "../components/Ingredients";
 import { isEmpty } from "../common/Helper";
 import ReactPlayer from "react-player/youtube";
 import LoadingSpinner from "../common/LoadingSpinner";
-import { getIngredientImage, getMealDetails } from "../api/Api";
+import { getIngredientImage, getMealDetails } from "../api/MealdbApi";
 
 
 const MealId = () => {

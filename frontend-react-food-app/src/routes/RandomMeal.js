@@ -2,7 +2,7 @@ import React, {useEffect, useState}from "react";
 import Meals from "../components/Meals";
 import LoadingSpinner from "../common/LoadingSpinner";
 import {isEmpty} from "../common/Helper.js";
-import { getRandomMeals } from "../api/Api";
+import { getRandomMeals } from "../api/MealdbApi";
 
 const RandomMeal = () => {
     const [ meals, setMeals ] = useState([]);

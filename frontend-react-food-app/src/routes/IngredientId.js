@@ -3,7 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import LoadingSpinner from "../common/LoadingSpinner";
 import Meals from "../components/Meals";
 import { isEmpty } from "../common/Helper";
-import { getIngredient, getIngredientImage, getFilterByIngredient } from "../api/Api";
+import { getIngredient, getIngredientImage, getFilterByIngredient } from "../api/MealdbApi";
 
 
 const IngredientId = () => {

@@ -18,13 +18,10 @@ const ViewReviews = () => {
         console.debug("getReviewsOnLoad=" ,getReviewsOnLoad );
         const reviews = await RequestApi.getReviews();
         setReviews(reviews);
-        // result();
+    
     }, []);
 
-    // const result = async () => {
-    //     let reviews = await RequestApi.getReviews();
-    //     setReviews(reviews);
-    // }
+
 
     if(!reviews) return <h1>Loading.....</h1>;
 

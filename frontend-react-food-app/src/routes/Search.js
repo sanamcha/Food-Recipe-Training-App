@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Meals from "../components/Meals";
-import { getSearchByName } from "../api/Api";
+import { getSearchByName } from "../api/MealdbApi";
 
 const Search = () => {
   const [meals, setMeals] = useState([]);

@@ -1,18 +1,14 @@
 import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
-
 import Homepage from "./Homepage";
 import RandomMeal from "./RandomMeal";
 import LoginForm from "../users/LoginForm";
-
 import SignupForm from "../users/SignupForm";
 import Categories from "../components/Categories";
 import PrivateRoute from "./PrivateRoute";
 
-
 import MealId from "./MealId";
 import Search from "./Search";
-
 import IngredientId from "./IngredientId";
 import PostList from "../components/PostList";
 import ViewReviews from "../components/ViewReviews";
