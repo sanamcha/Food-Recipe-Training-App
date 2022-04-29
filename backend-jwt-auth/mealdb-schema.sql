@@ -25,6 +25,7 @@ CREATE TABLE meals (
   image TEXT,
   youtube TEXT,
   reviews TEXT,
+  likes TEXT,
   username VARCHAR(25) 
     REFERENCES users ON DELETE CASCADE,
   category_id INTEGER  REFERENCES categories ON DELETE CASCADE
