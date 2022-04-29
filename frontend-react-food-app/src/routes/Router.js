@@ -23,7 +23,7 @@ import PostItem from "../components/PostItem";
 
 
 //for login and signup routes
-function Router({ login, signup, meals, add, reviews, addReviews }) {
+function Router({ login, signup, meals, setMeals, add, reviews, addReviews }) {
 
     return (
         <div>
@@ -32,7 +32,7 @@ function Router({ login, signup, meals, add, reviews, addReviews }) {
                 <Route exact path="/categories"><Categories /></Route>
                 <Route exact path="/random"><RandomMeal /></Route>
                 
-                <Route exact path="/meals"><PostList meals={meals} /></Route>
+                <Route exact path="/meals"><PostList meals={meals}  setMeals={setMeals}/></Route>
                 <PrivateRoute exact path="/meals/add"><AddPostForm add={add} /></PrivateRoute>
                 <PrivateRoute exact path="/meals/:id"><PostItem meals={meals} reviews={reviews} /></PrivateRoute>
                 
