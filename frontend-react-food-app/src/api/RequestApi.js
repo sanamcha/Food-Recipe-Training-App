@@ -93,8 +93,8 @@ class RequestApi {
   // return res.data;
   // }
 
-static async getMealById() {
-  const result = await axios.get(`http://localhost:3002/meals/`)
+static async getMealById(id) {
+  const result = await axios.get(`http://localhost:3002/meals/${id}`)
   return result.data;
 }
 
@@ -117,9 +117,20 @@ static async getMealById() {
   //   let res = await this.request(`reviews`, data, "post");
   //   return res.token;
   // }
-  static async addReview(data) {
+  // static async addReview(data) {
+  //   let url ="http://localhost:3002"
+  //   let res = await axios.post(`${url}/reviews`, {
+  //     meal_id: data.meal_id,
+  //     review: data.review,
+  //     username: data.username
+     
+  //   });
+  //   return res.token;
+  // }
+
+  static async addReview(data, id) {
     let url ="http://localhost:3002"
-    let res = await axios.post(`${url}/reviews`, {
+    let res = await axios.post(`${url}/meals/${id}/reviews`, {
       meal_id: data.meal_id,
       review: data.review,
       username: data.username

@@ -11,12 +11,12 @@ import ViewReviews from "./ViewReviews";
 import { Axios } from "axios";
 
 
-const PostItem = ({ reviews }) => {
+const PostItem = ({ meals, reviews }) => {
     console.debug("PostItem");
 
-    const [meals, setMeals] = useState({});
+    const [mealId, setMealId] = useState({});
 
-    // let { id } = useParams();
+    let { id } = useParams();
     const history = useHistory();
     const [formData, setFormData] = useState({  
         review:"", 
@@ -32,17 +32,24 @@ const PostItem = ({ reviews }) => {
 
     // let { id } = useParams();
 
-    useEffect(function getAllMealId() {
-          console.debug("getAllMealId=", getAllMealId)
-          result();
+    useEffect(() => {
+          async function getAllMealId() {
+            console.debug("getAllMealId=", getAllMealId)
+
+            const mealId = await RequestApi.getMealById(id);
+              setMealId(mealId.meals);
+
+          }
+          getAllMealId();
+         
         }, []);
     
         
-        async function result() {
-            const meals = await RequestApi.getMealById();
-            setMeals(meals.meals[0]);
+    //     async function result() {
+    //         const mealId = await RequestApi.getMealById(id);
+    //         setMealId(mealId.meals[id]);
 
-    }
+    // }
 
     // async function handleSubmit(e){
     //     e.preventDefault();
@@ -83,32 +90,35 @@ const PostItem = ({ reviews }) => {
         <section>
             <Card>
                 <CardBody>
-                    <CardTitle className="font-weight-bold text-center">
-                    {meals.meal}
+                  
+                        <CardTitle className="font-weight-bold text-center">
+                    {mealId.meal}
                 </CardTitle>
                 <CardText className="font-italic">
-                <b>Category :</b>{meals.category}
+                <b>Category :</b>{mealId.category}
                 </CardText>
                 <CardText className="font-italic">
-                <b>Area :</b>{meals.area}
+                <b>Area :</b>{mealId.area}
                 </CardText>
                 
-                <img src ={meals.image} 
+                <img src ={mealId.image} 
                        alt ="meal images"/>
                 
                 <p>
-                    <b>Instructions :</b>{meals.instructions}
+                    <b>Instructions :</b>{mealId.instructions}
                 </p>
-                <div>
-   
-                </div>
+                
+             
+                    
+                
+               
                  {/* <div className="row center-align">
                    <div className="col s12">
                        <h4>Demo Video</h4>
                        <div className="player-wrapper">
                        <ReactPlayer 
                            className = "react-player"
-                           url = { meals.youtube }
+                           url = { mealId.youtube }
                            width="100%"
                            height="400px"
                            pip={true}
@@ -125,15 +135,15 @@ const PostItem = ({ reviews }) => {
             <Card>
                 <CardBody>
                    
-                    <ListGroup>
+                    {/* <ListGroup>
                         <ul>Reviews:
-                            <li>{meals.reviews}</li>
-                            <li><ViewReviewId reviews={reviews}/></li>
+                            <li>{mealId.reviews}</li>
+                            <li><ViewReviewId reviews={reviews}/></li> */}
                             {/* <li><ViewReviews /></li> */}
-                        </ul>
+                        {/* </ul> */}
                        
                       
-                    </ListGroup>
+                    {/* </ListGroup> */}
                 </CardBody>
             </Card>
          

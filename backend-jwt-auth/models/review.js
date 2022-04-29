@@ -56,19 +56,17 @@ class Review {
     static async get(id) {
       const reviewResult = await db.query(
             `SELECT   
-                id,
+                meal_id,
                 username,
-                review,
-                meal_id 
+                review
+                 
               FROM reviews
-              WHERE id = $1`, [id]);
+              WHERE meal_id = $1`, [id]);
   
       const reviewId = reviewResult.rows[0];
   
       if (!reviewId) throw new NotFoundError(`No Reviews found : ${reviewId}`);
 
-      
-  
       return reviewId;
     }
   
