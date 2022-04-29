@@ -11,23 +11,23 @@ import ViewReviews from "./ViewReviews";
 import { Axios } from "axios";
 
 
-const PostItem = ({ meals, reviews }) => {
+const PostItem = () => {
     console.debug("PostItem");
 
     const [mealId, setMealId] = useState({});
 
     let { id } = useParams();
-    const history = useHistory();
-    const [formData, setFormData] = useState({  
-        review:"", 
-        username:"",
-        // mealId:`${id}`
-        mealId:""
+    // const history = useHistory();
+    // const [formData, setFormData] = useState({  
+    //     review:"", 
+    //     username:"",
+    //     // mealId:`${id}`
+    //     mealId:""
     
-    });
+    // });
 
-    const [formErrors, setFormErrors] = useState([]);
-    console.debug("formError=", formErrors);
+    // const [formErrors, setFormErrors] = useState([]);
+    // console.debug("formError=", formErrors);
     //handle form submit
 
     // let { id } = useParams();
@@ -44,12 +44,7 @@ const PostItem = ({ meals, reviews }) => {
          
         }, []);
     
-        
-    //     async function result() {
-    //         const mealId = await RequestApi.getMealById(id);
-    //         setMealId(mealId.meals[id]);
-
-    // }
+    
 
     // async function handleSubmit(e){
     //     e.preventDefault();
@@ -76,11 +71,11 @@ const PostItem = ({ meals, reviews }) => {
     //    }, []);
    
     //    const revResult = async (id) => {
-    //        let reviewId = await RequestApi.getReviewsByMealId(id);
-    //        setReviews(reviewId);
+    //        let reviews = await RequestApi.getReviewsByMealId(id);
+    //        setReviews(reviews);
     //    }
 
-       if(!reviews) return <h1>Loading.....</h1>;
+       
 
 
     return (
@@ -107,12 +102,9 @@ const PostItem = ({ meals, reviews }) => {
                 <p>
                     <b>Instructions :</b>{mealId.instructions}
                 </p>
-                
-             
-                    
-                
+            
                
-                 {/* <div className="row center-align">
+                 <div className="row center-align">
                    <div className="col s12">
                        <h4>Demo Video</h4>
                        <div className="player-wrapper">
@@ -126,7 +118,7 @@ const PostItem = ({ meals, reviews }) => {
                        />
                        </div>
                    </div>
-               </div> */}
+               </div>
                 </CardBody>
             </Card>
         </section>
@@ -135,15 +127,16 @@ const PostItem = ({ meals, reviews }) => {
             <Card>
                 <CardBody>
                    
-                    {/* <ListGroup>
-                        <ul>Reviews:
-                            <li>{mealId.reviews}</li>
-                            <li><ViewReviewId reviews={reviews}/></li> */}
+                     <ListGroup>
+                         <p>Reviews:</p>
+                        <ul>
+                            {/* <li>{mealId.reviews}</li> */}
+                            <ViewReviewId /> 
                             {/* <li><ViewReviews /></li> */}
-                        {/* </ul> */}
+                         </ul> 
                        
                       
-                    {/* </ListGroup> */}
+                     </ListGroup> 
                 </CardBody>
             </Card>
          
