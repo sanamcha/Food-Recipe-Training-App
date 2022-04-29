@@ -121,7 +121,7 @@ router.get("/:category", async function (req, res, next) {
 // PATCH /[mealId]  => { meal }
 
 
-router.patch("/:id", ensureCorrectUserOrAdmin, async function (req, res, next) {
+router.patch("/:id",  async function (req, res, next) {
   try {
     const validator = jsonschema.validate(req.body, mealUpdateSchema);
     if (!validator.valid) {
@@ -136,10 +136,21 @@ router.patch("/:id", ensureCorrectUserOrAdmin, async function (req, res, next) {
   }
 });
 
+
+//like the post
+// router.put('/like', async function(req, res, next) {
+//   try{
+//     await Meal.
+//   }catch (err){
+//     return next(err);
+//   }
+// })
+
+
+
 // DELETE /  =>  { deleted: id }
 
-
-router.delete("/:id", ensureCorrectUserOrAdmin, async function (req, res, next) {
+router.delete("/:id", async function (req, res, next) {
   try {
     await Meal.remove(req.params.id);
     return res.json({ deleted: +req.params.id });
