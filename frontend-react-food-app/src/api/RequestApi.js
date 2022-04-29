@@ -140,9 +140,11 @@ static async getMealById(id) {
   }
 
   //click to like btn
-  static async likeToMeal(username, id) {
+  static async likeMeal(username, id) {
     await this.request(`users/${username}/meals/${id}`, {}, "post");
   }
+
+
 
 
   }
