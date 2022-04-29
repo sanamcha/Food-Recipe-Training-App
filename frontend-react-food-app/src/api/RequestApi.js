@@ -110,7 +110,7 @@ static async getMealById(id) {
   static async getReviewsByMealId(id){
     const result = await axios.get(`http://localhost:3002/reviews/${id}`)
     // let result = await this.request(`reviews/${id}`);
-    return result.reviews;
+    return result.data;
   }
   //add reviews
   // static async review(data){
