@@ -46,8 +46,8 @@ class Meal {
                   area,
                   instructions,
                   image,
-                  youtube,
-                  reviews
+                  youtube
+                 
          
             FROM meals
             LEFT JOIN 
@@ -101,7 +101,8 @@ class Meal {
               instructions,
               image,
               youtube,
-              reviews
+              reviews,
+              likes
         
             FROM meals 
     
