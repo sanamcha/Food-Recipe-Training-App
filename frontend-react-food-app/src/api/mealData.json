@@ -1,0 +1,141 @@
+{
+ "mealData" : 
+    [
+        {
+            "idMeal": "1",
+            "strMeal": "Bakewell tart",
+            "strDrinkAlternate": null,
+            "strCategory": "Dessert",
+            "strArea": "British",
+            "strMealThumb": "https://www.themealdb.com/images/media/meals/wyrqqq1468233628.jpg",
+            "strTags": "Tart,Baking,Alcoholic"
+        
+        },
+        {
+            "idMeal": "2",
+            "strMeal": "Bread and Butter Pudding",
+            "strDrinkAlternate": null,
+            "strCategory": "Dessert",
+            "strArea": "British",
+        
+            "strMealThumb": "https://www.themealdb.com/images/media/meals/xqwwpy1483908697.jpg",
+            "strTags": "Pudding,Brunch"
+        
+        },
+        {
+            "idMeal": "3",
+            "strMeal": "Beef Wellington",
+            "strDrinkAlternate": null,
+            "strCategory": "Beef",
+            "strArea": "British",
+            "strMealThumb": "https://www.themealdb.com/images/media/meals/vvpprx1487325699.jpg",
+            "strTags": "Meat,Stew"
+        },
+        {
+            "idMeal": "4",
+            "strMeal": "Baingan Bharta",
+            "strDrinkAlternate": null,
+            "strCategory": "Vegetarian",
+            "strArea": "Indian",
+        
+            "strMealThumb": "https://www.themealdb.com/images/media/meals/urtpqw1487341253.jpg",
+            "strTags": "Spicy,Bun,Calorific"
+        
+        },
+        {
+            "idMeal": "5",
+            "strMeal": "Beef Brisket Pot Roast",
+            "strDrinkAlternate": null,
+            "strCategory": "Beef",
+            "strArea": "American",
+        
+            "strMealThumb": "https://www.themealdb.com/images/media/meals/ursuup1487348423.jpg",
+            "strTags": "Meat"
+        
+        },
+        {
+            "idMeal": "6",
+            "strMeal": "Beef Sunday Roast",
+            "strDrinkAlternate": null,
+            "strCategory": "Beef",
+            "strArea": "British",
+            "strMealThumb": "https://www.themealdb.com/images/media/meals/ssrrrs1503664277.jpg",
+            "strTags": "MainMeal"
+        },
+        {
+            "idMeal": "7",
+            "strMeal": "Chicken Handi",
+            "strDrinkAlternate": null,
+            "strCategory": "Chicken",
+            "strArea": "Indian",
+
+            "strMealThumb": "https://www.themealdb.com/images/media/meals/wyxwsp1486979827.jpg",
+            "strTags": null,
+            "strYoutube": "https://www.youtube.com/watch?v=IO0issT0Rmc"
+
+        },
+        {
+            "idMeal": "8",
+            "strMeal": "Chicken Congee",
+            "strDrinkAlternate": null,
+            "strCategory": "Chicken",
+            "strArea": "Chinese",
+
+            "strMealThumb": "https://www.themealdb.com/images/media/meals/1529446352.jpg",
+            "strTags": null,
+            "strYoutube": "https://www.youtube.com/watch?v=kqEfk801E94"
+
+
+        },
+        {
+            "idMeal": "9",
+            "strMeal": "Chicken Karaage",
+            "strDrinkAlternate": null,
+            "strCategory": "Chicken",
+            "strArea": "Japanese",
+
+            "strMealThumb": "https://www.themealdb.com/images/media/meals/tyywsw1505930373.jpg",
+
+            "strYoutube": "https://www.youtube.com/watch?v=XivddFddthc",
+        },
+        
+        {
+            "idMeal": "10",
+            "strMeal": "Fish pie",
+            "strDrinkAlternate": null,
+            "strCategory": "Seafood",
+            "strArea": "British",
+
+            "strMealThumb": "https://www.themealdb.com/images/media/meals/ysxwuq1487323065.jpg",
+            "strTags": "Fish,Pie,Breakfast,Baking",
+            "strYoutube": "https://www.youtube.com/watch?v=2sX4fCgg-UI"
+
+        },
+        {
+            "idMeal": "11",
+            "strMeal": "Fish fofos",
+            "strDrinkAlternate": null,
+            "strCategory": "Seafood",
+            "strArea": "Portuguese",
+
+            "strMealThumb": "https://www.themealdb.com/images/media/meals/a15wsa1614349126.jpg",
+            "strTags": null,
+            "strYoutube": "https://www.youtube.com/watch?v=YXUZHK2PrV8"
+
+        },
+        {
+            "idMeal": "12",
+            "strMeal": "Three Fish Pie",
+            "strDrinkAlternate": null,
+            "strCategory": "Seafood",
+            "strArea": "British",
+
+            "strMealThumb": "https://www.themealdb.com/images/media/meals/spswqs1511558697.jpg",
+            "strTags": "Fish,Seafood,Dairy,Pie",
+            "strYoutube": "https://www.youtube.com/watch?v=Ds1Jb8H5Sg8"
+
+        }
+
+    ]
+
+}
