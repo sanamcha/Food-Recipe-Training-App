@@ -22,13 +22,15 @@ const Categories = () => {
 
     return (
 
-        <div>
+        <div className="Categories">
             {categories.map(c => (
                 <div>
-                    <Link to = {`/search/q=${c.category}?`}>{c.category}</Link>
-                    <img src={c.image}
+                    <Link to = {`/search/q=${c.category}?`}><img src={c.image}
                         alt={c.category} />
-                    <p><span>{c.category}</span></p>  
+                        <p><span>{c.category}</span></p> 
+                    </Link>
+                    
+                   <hr></hr>  
                 </div>
             ))}
 

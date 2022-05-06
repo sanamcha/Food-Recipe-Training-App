@@ -1,7 +1,7 @@
 import React  from "react";
 import { Link } from "react-router-dom";
-import Rating from "react-rating";
-
+// import Rating from "react-rating";
+// import LikeMeal from "./LikeMeal";
 
 
 const MealDetail = ({ meal }) => {
@@ -29,10 +29,11 @@ const MealDetail = ({ meal }) => {
                     <strong>Tags:</strong>{meal.strTags}
                 </p>
                 
-                <Rating className="rating" 
+                {/* <LikeMeal /> */}
+                {/* <Rating className="Rating" 
                 emptySymbol="far fa-star design"
                 fullSymbol="fas fa-star design"            
-                initialRating={3}/>
+                initialRating={3}/> */}
             </div>
             </div>
         </div>

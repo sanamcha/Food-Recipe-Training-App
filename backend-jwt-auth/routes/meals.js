@@ -138,13 +138,45 @@ router.patch("/:id",  async function (req, res, next) {
 
 
 //like the post
-// router.put('/like', async function(req, res, next) {
-//   try{
-//     await Meal.
-//   }catch (err){
-//     return next(err);
-//   }
-// })
+router.put('/like/:id', async function(req, res, next) {
+  try{
+    const meal = await Meal.get(req.params.id);
+
+    //to check the meal has already been liked
+    if(meal.likes.filter(like => like.user.toString()=== req.user.id).length > 0){
+      return res.status(400).json({ msg: "Meals already been liked"});
+    }
+      meal.likes.unshift({ user: req.user.id });
+      await meal.save();
+      res.json(meal.likes);
+    
+  }catch (err){
+    return next(err);
+  }
+});
+
+//to unlike meal post
+router.put('/unlike/:id', async function(req, res, next) {
+  try{
+    const meal = await Meal.get(req.params.id);
+
+    //to check the meal has already been liked
+    if(meal.likes.filter(like => like.user.toString()=== req.user.id).length === 0){
+      return res.status(400).json({ msg: "Meals has not yet  been liked"});
+    }
+
+    //get remove idx
+    const removeIdx = meal.likes.map(like => like.user.toString()).indexOf(req.user.id);
+
+      meal.likes.splice(removeIdx, 1);
+
+      await meal.save();
+      res.json(meal.likes);
+    
+  }catch (err){
+    return next(err);
+  }
+})
 
 
 

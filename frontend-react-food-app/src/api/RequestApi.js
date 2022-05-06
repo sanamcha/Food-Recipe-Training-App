@@ -101,8 +101,8 @@ static async getMealById(id) {
 
 
   //to get reviews
-  static async getReviews(id) {
-    let res = await this.request("reviews", {id});
+  static async getReviews(meal_id) {
+    let res = await this.request("reviews", {meal_id});
     return res.reviews;
   }
 

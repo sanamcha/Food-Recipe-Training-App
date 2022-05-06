@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
 
+
 const LoginForm = ({ login }) => {
     const history = useHistory();
     const [formData, setFormData] = useState({ username:"", password:""});
@@ -15,8 +16,9 @@ const LoginForm = ({ login }) => {
         e.preventDefault();
         let result = await login(formData);
         if (result.success){
-            history.push("/random");
+            history.push("/");
         } else {
+         
             setFormErrors(result.errors);
         }
     }
@@ -58,7 +60,11 @@ const LoginForm = ({ login }) => {
                         required
                     />
                   </div>
-  
+
+                  {formErrors.length
+                      ? <h3 type="danger">Sorry, invalid username or password.....</h3>
+                      : null
+                  }
   
                   <button
                       className="btn btn-primary"

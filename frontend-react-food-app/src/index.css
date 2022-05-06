@@ -22,6 +22,16 @@ body {
   flex: 2 0 auto;
 }
 
+.Homepage {
+background-color: antiquewhite;
+}
+
+.homeIcon{
+  width:45px;
+  height: 55px;
+  cursor: pointer;
+
+}
 .col s12 {
  width: 250px;
   height: 250px;
@@ -37,6 +47,7 @@ body {
 a.view-recipe:hover {
   color: brown;
 }
+
 
 .row {
   margin: 2.5rem auto 2rem;
@@ -104,21 +115,39 @@ p span {
 }
 
 img  {
-  width: 250px;
-  height: 250px;
+  width: 280px;
+  height: 280px;
 }
 
 .Homepage{
   display: grid;
 }
+
+.Navigation{
+  background-color: rgb(158, 167, 244);
+}
+
 .randomMeals {
   background-color: orange;
   text-align: center;
 }
+.Categories {
+  background-color: rgb(149, 187, 209);
+}
+.add{
+  background-color: rgb(239, 129, 129);
+  text-align: center;
+}
+
+/* .PostMealList{
+  background-color:rgb(242, 211, 148);
+} */
 .categories {
   display: inline-flexbox;
 }
-
+.card-body{
+  background-color: rgb(207, 178, 218);
+}
 /* .RecipeCard {
  
     height: 400px;
@@ -139,17 +168,38 @@ img  {
   color: black;
 }
 
-.rating {
+/* .Rating {
   color: gold;
   
-}
+} */
 
 .MealDetail {
 display: grid;
 
-}
 
+}
+.PostMealDetail{
+  background-color: rgb(202, 228, 229);
+}
 button img {
   height:20px;
   width:20px;
+}
+
+.LikeMeal {
+  display: rows;
+}
+
+
+.LikeMeal button{
+
+  border:1px solid white;
+  border-radius: 50px;
+
+  text-align: center;
+  cursor: pointer;
+}
+
+.page-footer {
+  background-color: rgb(172, 175, 182);
 }
