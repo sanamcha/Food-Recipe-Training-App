@@ -10,8 +10,8 @@ const AddPostForm = ({ add }) => {
         category:"",
         area:"",
         instructions:"",
-        image:"",
-        youtube:""
+        image:"https://tse2.mm.bing.net/th?id=OIP.1y2hTyS0rjxpNYFiPwa7HAHaFj&pid=Api&P=0&w=259&h=194",
+        youtube:"https://www.youtube.com/watch?v=fcD94e93cCk"
     });
 
     const [formErrors, setFormErrors] = useState([]);
